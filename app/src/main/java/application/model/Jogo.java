@@ -27,10 +27,10 @@ public class Jogo {
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
-    public String getIsbn() {
-        return isbn;
+    public String getAnoDelancamento() {
+        return anoDelancamento;
     }
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
+    public void setAnoDelancamento(String anoDelancamento) {
+        this.anoDelancamento = anoDelancamento;
     }
 }

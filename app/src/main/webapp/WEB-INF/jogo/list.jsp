@@ -22,7 +22,7 @@
                     <tr>
                         <td>${item.id}</td>
                         <td>${item.titulo}</td>
-                        <td>${item.anoDeLancamento}</td>
+                        <td>${item.anoDelancamento}</td>
                         <td>
                             <a href="/jogo/update?id=${item.id}" class="btn btn-warning">Editar</a>
                             <a href="/jogo/delete?id=${item.id}" class="btn btn-danger">Excluir</a>

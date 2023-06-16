@@ -15,12 +15,13 @@ import application.model.JogoRepository;
 @Controller
 @RequestMapping("/jogo")
 public class JogoController {
+
     @Autowired
     private JogoRepository jogoRepo;
 
     @RequestMapping("/list")
     public String list(Model model) {
-        model.addAttribute("livros", jogoRepo.findAll());
+        model.addAttribute("jogo", jogoRepo.findAll());
         return "/jogo/list";
     }
 
@@ -32,10 +33,10 @@ public class JogoController {
     @RequestMapping(value = "/insert", method = RequestMethod.POST)
     public String insert(
         @RequestParam("titulo") String titulo,
-        @RequestParam("anoDelancamento") String anoDelancamento) {
+        @RequestParam("isbn") String isbn) {
         Jogo jogo = new Jogo();
         jogo.setTitulo(titulo);
-        Jogo.setanoDelancamento(anoDelancamento);
+        jogo.setIsbn(isbn);
 
         jogoRepo.save(jogo);
         return "redirect:/jogo/list";
@@ -46,7 +47,7 @@ public class JogoController {
         Optional<Jogo> jogo = jogoRepo.findById(id);
 
         if(jogo.isPresent()) {
-            model.addAttribute("livro", jogo.get());
+            model.addAttribute("jogo", jogo.get());
             return "/jogo/update";
         }
 
@@ -57,12 +58,12 @@ public class JogoController {
     public String update(
         @RequestParam("id") int id,
         @RequestParam("titulo") String titulo,
-        @RequestParam("anoDelancamento") String anoDelancamento) {
+        @RequestParam("isbn") String isbn) {
         Optional<Jogo> jogo = jogoRepo.findById(id);
 
         if(jogo.isPresent()) {
             jogo.get().setTitulo(titulo);
-            jogo.get().setanoDelancamento(anoDelancamento);
+            jogo.get().setIsbn(isbn);
             jogoRepo.save(jogo.get());
         }
 
@@ -74,7 +75,7 @@ public class JogoController {
         Optional<Jogo> jogo = jogoRepo.findById(id);
 
         if(jogo.isPresent()) {
-            model.addAttribute("livro", jogo.get());
+            model.addAttribute("jogo", jogo.get());
             return "/jogo/delete";
         }
 

@@ -9,7 +9,7 @@
     <body>
         <div class="container">
             <h1>Remover Jogo</h1>
-            <p>Tem certeza que deseja remover o jogo ${jogo.titulo} ?</p>
+            <p>Tem certeza que deseja remover apagar esse Jogo ${jogo.titulo} ?</p>
             <form action="/jogo/delete" method="post">
                 <input type="hidden" name="id" value="${jogo.id}" />
                 <br />
